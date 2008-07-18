@@ -1,0 +1,16 @@
+inherit qt4
+
+DESCRIPTION="Qt GUI Interface for FluidSynth"
+HOMEPAGE="http://qsynth.sourceforge.net/"
+SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+
+DIFF_EXCLUDES="translations"
+
+src_compile() {
+#	cd ${S}
+#	cygautoreconf
+	lndirs
+	cd ${B}
+	cygconf
+	cygmake
+}
