@@ -1,16 +1,7 @@
-inherit qt4
+inherit qt4-cmake
 
 DESCRIPTION="Qt GUI Interface for FluidSynth"
 HOMEPAGE="http://qsynth.sourceforge.net/"
 SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
-
-DIFF_EXCLUDES="translations"
-
-src_compile() {
-#	cd ${S}
-#	cygautoreconf
-	lndirs
-	cd ${B}
-	cygconf
-	cygmake
-}
+PATCH_URI="0.3.6-install-l10n.patch
+	   0.3.6-libX11.patch"

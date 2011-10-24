@@ -1,0 +1,29 @@
+--- origsrc/qsynth-0.3.6/src/CMakeLists.txt	2010-10-31 13:44:59.000000000 -0500
++++ src/qsynth-0.3.6/src/CMakeLists.txt	2011-10-23 21:32:51.584331200 -0500
+@@ -126,7 +126,7 @@ if (UNIX AND NOT APPLE)
+     install ( TARGETS qsynth
+               RUNTIME DESTINATION bin )
+     install ( FILES ${QM_FILES}
+-              DESTINATION share/locale )
++              DESTINATION share/qsynth )
+     install ( FILES ${CMAKE_CURRENT_BINARY_DIR}/qsynth.desktop
+               DESTINATION share/applications )
+     install ( FILES images/qsynth.png
+@@ -137,5 +137,5 @@ if (WIN32)
+     install ( TARGETS qsynth
+               RUNTIME DESTINATION . )
+     install ( FILES ${QM_FILES}
+-              DESTINATION share/locale )
++              DESTINATION share/qsynth )
+ endif (WIN32)
+--- origsrc/qsynth-0.3.6/src/qsynth.cpp	2011-03-16 06:05:33.000000000 -0500
++++ src/qsynth-0.3.6/src/qsynth.cpp	2011-10-23 21:29:50.714363600 -0500
+@@ -91,7 +91,7 @@ public:
+ 			if (m_pMyTranslator->load(sLocName, sLocPath)) {
+ 				QApplication::installTranslator(m_pMyTranslator);
+ 			} else {
+-				sLocPath = CONFIG_PREFIX "/share/locale";
++				sLocPath = CONFIG_PREFIX "/share/qsynth";
+ 				if (m_pMyTranslator->load(sLocName, sLocPath)) {
+ 					QApplication::installTranslator(m_pMyTranslator);
+ 				} else {
