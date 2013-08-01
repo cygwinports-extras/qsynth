@@ -1,7 +1,7 @@
 inherit qt4-cmake
 
 NAME="qsynth"
-VERSION=0.3.6
+VERSION=0.3.7
 RELEASE=1
 CATEGORY="Audio"
 SUMMARY="Qt FluidSynth GUI"

@@ -16,14 +16,14 @@
 -              DESTINATION share/locale )
 +              DESTINATION share/qsynth )
  endif (WIN32)
---- origsrc/qsynth-0.3.6/src/qsynth.cpp	2011-03-16 06:05:33.000000000 -0500
-+++ src/qsynth-0.3.6/src/qsynth.cpp	2011-10-23 21:29:50.714363600 -0500
-@@ -91,7 +91,7 @@ public:
- 			if (m_pMyTranslator->load(sLocName, sLocPath)) {
- 				QApplication::installTranslator(m_pMyTranslator);
- 			} else {
--				sLocPath = CONFIG_PREFIX "/share/locale";
-+				sLocPath = CONFIG_PREFIX "/share/qsynth";
- 				if (m_pMyTranslator->load(sLocName, sLocPath)) {
- 					QApplication::installTranslator(m_pMyTranslator);
- 				} else {
+--- origsrc/qsynth-0.3.7/src/qsynth.cpp	2013-02-14 08:52:31.409468000 -0600
++++ src/qsynth-0.3.7/src/qsynth.cpp	2013-08-01 18:52:17.878040100 -0500
+@@ -55,7 +55,7 @@ const WindowFlags CustomizeWindowHint
+ #if defined(LOCALEDIR)
+ #define CONFIG_LOCALEDIR CONFIG_QUOTED(LOCALEDIR)
+ #else
+-#define CONFIG_LOCALEDIR CONFIG_DATADIR "/locale"
++#define CONFIG_LOCALEDIR CONFIG_DATADIR "/qsynth"
+ #endif
+ 
+ 
