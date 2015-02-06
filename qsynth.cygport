@@ -1,7 +1,7 @@
 inherit qt4-cmake
 
 NAME="qsynth"
-VERSION=0.3.7
+VERSION=0.3.8
 RELEASE=1
 CATEGORY="Audio"
 SUMMARY="Qt FluidSynth GUI"
@@ -10,5 +10,11 @@ Qt4 toolkit which wraps the excellent FluidSynth Soundfont-based software
 synthesizer."
 HOMEPAGE="http://qsynth.sourceforge.net/"
 SRC_URI="mirror://sourceforge/qsynth/qsynth-${VERSION}.tar.gz"
-PATCH_URI="0.3.6-install-l10n.patch
-	   0.3.6-libX11.patch"
+PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/qsynth.git/plain/qsynth-fix-locale-path.patch
+	http://pkgs.fedoraproject.org/cgit/qsynth.git/plain/qsynth-fedora-defaults.patch
+	http://pkgs.fedoraproject.org/cgit/qsynth.git/plain/qsynth-linking.patch
+	0.3.8-cygwin-defaults.patch
+"
+
+REQUIRES="soundfont-fluid-gm"

@@ -1,0 +1,14 @@
+--- origsrc/qsynth-0.3.8/src/qsynthOptions.cpp	2015-02-05 23:14:01.131168000 -0600
++++ src/qsynth-0.3.8/src/qsynthOptions.cpp	2015-02-05 23:18:54.005858300 -0600
+@@ -476,6 +476,11 @@ void qsynthOptions::loadSetup ( qsynthSe
+ 	pSetup->sAudioDriver     = m_settings.value("/AudioDriver", "dsound").toString();
+ 	pSetup->iAudioBufSize    = m_settings.value("/AudioBufSize", 512).toInt();
+ 	pSetup->iAudioBufCount   = m_settings.value("/AudioBufCount", 8).toInt();
++#elif defined(__CYGWIN__)
++	pSetup->sMidiDriver      = m_settings.value("/MidiDriver", "winmidi").toString();
++	pSetup->sAudioDriver     = m_settings.value("/AudioDriver", "portaudio").toString();
++	pSetup->iAudioBufSize    = m_settings.value("/AudioBufSize", 1024).toInt();
++	pSetup->iAudioBufCount   = m_settings.value("/AudioBufCount", 8).toInt();
+ #else
+ 	pSetup->sMidiDriver      = m_settings.value("/MidiDriver", "alsa_seq").toString();
+ 	pSetup->sAudioDriver     = m_settings.value("/AudioDriver", "jack").toString();
